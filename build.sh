@@ -13,7 +13,7 @@ tag_and_push() {
 
 docker_login() {
 	echo -n $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-)
+}
 
 docker_login
 
