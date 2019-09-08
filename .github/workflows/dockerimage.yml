@@ -1,6 +1,9 @@
-name: Docker Image CI
+name: Build and push Docker image
 
-on: [push]
+on:
+- push
+- schedule:
+  - cron: 0 * * * *
 
 jobs:
 
