@@ -10,5 +10,9 @@ jobs:
  
     steps:
     - uses: actions/checkout@v1
+
     - name: Build and publish
       run: ./build.sh
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
