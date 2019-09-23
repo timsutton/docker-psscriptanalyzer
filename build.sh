@@ -7,7 +7,7 @@ IMAGE_NAME="timsutton/psscriptanalyzer"
 compare_published_image_with_module_version() {
 	published_tags=$(curl -sSfL https://index.docker.io/v1/repositories/timsutton/psscriptanalyzer/tags | jq --raw-output '.[].name')
 
-	module_version=$(docker run mcr.microsoft.com/powershell:6.2.2-debian-stretch-slim pwsh -c "Write-Output (find-module PSScriptAnalyzer).Version")
+	module_version=$(docker run mcr.microsoft.com/powershell:6.2.3-debian-stretch-slim pwsh -c "Write-Output (find-module PSScriptAnalyzer).Version")
 
 	if echo "${published_tags}" | grep -q "${module_version}"; then
 		echo -e "Version ${module_version} already present in published Docker image tags:\n${published_tags}.\n"

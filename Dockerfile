@@ -1,5 +1,7 @@
-FROM mcr.microsoft.com/powershell:6.2.2-debian-stretch-slim
+FROM mcr.microsoft.com/powershell:6.2.3-debian-stretch-slim
 
 LABEL maintainer="Tim Sutton"
 
-RUN ["/usr/bin/pwsh", "-c", "$ErrorActionPreference = \"Stop\"; Install-Module -Name PSScriptAnalyzer -Force"]
+COPY docker-build /tmp
+
+RUN ["/usr/bin/pwsh", "-File", "/tmp/InstallPSScriptAnalyzer.ps1"]
